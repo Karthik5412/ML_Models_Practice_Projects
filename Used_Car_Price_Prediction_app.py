@@ -47,7 +47,7 @@ fuel_type = st.selectbox('Enter Fuel Type', ['petrol', 'diesel', 'petrol & cng',
 
 transmission = st.selectbox('Enter Transmission', car_trans[variant])
 
-yr_mfr = st.number_input('Enter Car Manufacture Year',2001,date.today().year - 2)
+yr_mfr = st.number_input('Enter Car Manufacture Year',2005,date.today().year - 2)
 
 st.markdown("""
     <style>
@@ -61,7 +61,7 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
-kms_run = st.slider('Enter number of km ran',10000,100000)
+kms_run = st.slider('Enter number of km ran',10000,100000,50000)
 
 car_rating = st.selectbox('Enter Car rating',['great', 'good', 'fair', 'overpriced', 'manual'])
 
@@ -112,6 +112,6 @@ if st.button('Predict'):
     final_input = input_row[expected_cols]
     
     prediction = model.predict(final_input)
-    st.success(f'${int(prediction)}')
+    st.success(f'₹{int(prediction)}')
     
     
